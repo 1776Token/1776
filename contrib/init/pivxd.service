@@ -1,0 +1,26 @@
+[Unit]
+Description=SSS's distributed currency daemon
+After=network.target
+
+[Service]
+User=sss
+Group=sss
+
+Type=forking
+PIDFile=/var/lib/sssd/sssd.pid
+
+ExecStart=/usr/bin/sssd -daemon -pid=/var/lib/sssd/sssd.pid \
+          -conf=/etc/sss/sss.conf -datadir=/var/lib/sssd
+
+ExecStop=-/usr/bin/sss-cli -conf=/etc/sss/sss.conf \
+         -datadir=/var/lib/sssd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

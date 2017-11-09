@@ -423,7 +423,7 @@ boost::filesystem::path GetDefaultDataDir()
 // Unix: ~/.sss
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "1776";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "1776Data";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -435,10 +435,10 @@ boost::filesystem::path GetDefaultDataDir()
     // Mac
     pathRet /= "Library/Application Support";
     TryCreateDirectory(pathRet);
-    return pathRet / "1776";
+    return pathRet / "1776Data";
 #else
     // Unix
-    return pathRet / ".1776";
+    return pathRet / ".1776Data";
 #endif
 #endif
 }

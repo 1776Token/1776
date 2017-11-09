@@ -1636,10 +1636,23 @@ int64_t GetBlockValue(int nHeight, CAmount nFees, bool fBudgetBlock)
 
     // return nSubsidy + nFees;
 
-    if (nHeight >= 1)
-    {
-        return nFees;
-    }
+    // if (nHeight >= 1)
+    // {
+    //     return nFees;
+    // }
+
+
+    int64_t nBudgetMultiplier = COIN;
+    if (!fBudgetBlock)
+        nBudgetMultiplier = COIN - (Params().GetBudgetPercent() * CENT);
+
+    CAmount nSubsidy = 10 * nBudgetMultiplier; // Default PoS reward
+    if (nHeight == 1)
+        return CAmount(177600000) * COIN;
+    else if (nHeight > 1 && nHeight <= Params().LAST_POW_BLOCK())
+        return nFees; // No block reward for setting up the network!
+    
+    return nSubsidy + nFees;
 
 }
 

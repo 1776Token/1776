@@ -48,8 +48,8 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 35
 
-#define QAPP_ORG_NAME "1776"
-#define QAPP_ORG_DOMAIN "sss.org"
+#define QAPP_ORG_NAME "1776Token"
+#define QAPP_ORG_DOMAIN "freedom.social"
 #define QAPP_APP_NAME_DEFAULT "1776-Qt"
 #define QAPP_APP_NAME_TESTNET "1776-Qt-testnet"
 

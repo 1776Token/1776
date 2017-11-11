@@ -30,6 +30,9 @@
      <property name="pixmap">
       <pixmap resource="../sss.qrc">:/images/about</pixmap>
      </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
    <item>
@@ -54,7 +57,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>447</width>
+          <width>479</width>
           <height>68</height>
          </rect>
         </property>

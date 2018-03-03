@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=1776
+Comment=1776 P2P Cryptocurrency
+Comment[fr]=1776, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=1776, eşten eşe kriptografik sanal para birimi
+Exec=1776-qt %u
+Terminal=false
+Type=Application
+Icon=1776128
+MimeType=x-scheme-handler/1776;
+Categories=Office;Finance;

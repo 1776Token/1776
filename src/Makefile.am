@@ -64,15 +64,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += sssd
+  bin_PROGRAMS += 1776d
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += sss-cli sss-tx
+  bin_PROGRAMS += 1776-cli 1776-tx
 endif
 
 .PHONY: FORCE
-# sss core #
+# 1776 core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -82,6 +82,7 @@ BITCOIN_CORE_H = \
   base58.h \
   bip38.h \
   bloom.h \
+  bignum.h \
   chain.h \
   chainparams.h \
   chainparamsbase.h \
@@ -180,7 +181,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between sssd and sss-qt
+# server: shared between 1776d and 1776-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -224,7 +225,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between sssd and sss-qt, but only linked
+# wallet: shared between 1776d and 1776-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -295,7 +296,7 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between sssd, and sss-qt and non-server tools
+# common: shared between 1776d, and 1776-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -351,7 +352,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between sss-cli and sss-qt
+# cli: shared between 1776-cli and 1776-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -361,7 +362,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-sssd_LDADD = \
+1776d_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -372,40 +373,40 @@ sssd_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-sssd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+1776d_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-sssd_LDADD += libbitcoin_wallet.a
+1776d_LDADD += libbitcoin_wallet.a
 endif
-sssd_SOURCES = sssd.cpp
+1776d_SOURCES = 1776d.cpp
 #
 
 if TARGET_WINDOWS
-sssd_SOURCES += sssd-res.rc
+1776d_SOURCES += 1776d-res.rc
 endif
 
-sssd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-sssd_CPPFLAGS = $(BITCOIN_INCLUDES)
-sssd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+1776d_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+1776d_CPPFLAGS = $(BITCOIN_INCLUDES)
+1776d_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# sss-cli binary #
-sss_cli_LDADD = \
+# 1776-cli binary #
+1776_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-sss_cli_SOURCES = \
-  sss-cli.cpp
+1776_cli_SOURCES = \
+  1776-cli.cpp
 
-sss_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+1776_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
-# sss-tx binary #
-sss_tx_LDADD = \
+# 1776-tx binary #
+1776_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -414,15 +415,15 @@ sss_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-sss_tx_SOURCES = sss-tx.cpp
-sss_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+1776_tx_SOURCES = 1776-tx.cpp
+1776_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-sss_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+1776_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-sss_cli_SOURCES += sss-cli-res.rc
+1776_cli_SOURCES += 1776-cli-res.rc
 endif
-sss_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+1776_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

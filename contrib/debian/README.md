@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package sssd/sss-qt
-for Debian-based Linux systems. If you compile sssd/sss-qt yourself, there are some useful files here.
+This directory contains files used to package 1776d/1776-qt
+for Debian-based Linux systems. If you compile 1776d/1776-qt yourself, there are some useful files here.
 
-## sss: URI support ##
+## 1776: URI support ##
 
 
-sss-qt.desktop  (Gnome / Open Desktop)
+1776-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install sss-qt.desktop
+	sudo desktop-file-install 1776-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your sssqt binary to `/usr/bin`
-and the `../../share/pixmaps/sss128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your 1776qt binary to `/usr/bin`
+and the `../../share/pixmaps/1776128.png` to `/usr/share/pixmaps`
 
-sss-qt.protocol (KDE)
+1776-qt.protocol (KDE)
 

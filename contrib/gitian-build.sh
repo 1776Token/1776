@@ -17,7 +17,7 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/1776-Token/1776
+url=https://github.com/1776/1776
 proc=2
 mem=2000
 lxc=true
@@ -31,7 +31,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the sss, gitian-builder, gitian.sigs, and sss-detached-sigs.
+Run this script from the directory containing the 1776, gitian-builder, gitian.sigs, and 1776-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -39,7 +39,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/sss-project/sss
+-u|--url	Specify the URL of the repository. Default is https://github.com/1776/1776
 -v|--verify 	Verify the gitian build
 -b|--build	Do a gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -232,8 +232,8 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/sss-project/gitian.sigs.git
-    git clone https://github.com/sss-project/sss-detached-sigs.git
+    git clone https://github.com/mammix2/gitian.sigs.git
+    git clone https://github.com/1776/1776-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
@@ -247,7 +247,7 @@ then
 fi
 
 # Set up build
-pushd ./sss
+pushd ./1776
 git fetch
 git checkout ${COMMIT}
 popd
@@ -256,7 +256,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./sss-binaries/${VERSION}
+	mkdir -p ./1776-binaries/${VERSION}
 
 	# Build Dependencies
 	echo ""
@@ -266,7 +266,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../sss/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../1776/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -274,9 +274,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit sss=${COMMIT} --url sss=${url} ../sss/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../sss/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/sss-*.tar.gz build/out/src/sss-*.tar.gz ../sss-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit 1776=${COMMIT} --url 1776=${url} ../1776/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../1776/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/1776-*.tar.gz build/out/src/1776-*.tar.gz ../1776-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -284,10 +284,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit sss=${COMMIT} --url sss=${url} ../sss/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../sss/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/sss-*-win-unsigned.tar.gz inputs/sss-win-unsigned.tar.gz
-	    mv build/out/sss-*.zip build/out/sss-*.exe ../sss-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit 1776=${COMMIT} --url 1776=${url} ../1776/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../1776/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/1776-*-win-unsigned.tar.gz inputs/1776-win-unsigned.tar.gz
+	    mv build/out/1776-*.zip build/out/1776-*.exe ../1776-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -295,10 +295,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit sss=${COMMIT} --url sss=${url} ../sss/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../sss/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/sss-*-osx-unsigned.tar.gz inputs/sss-osx-unsigned.tar.gz
-	    mv build/out/sss-*.tar.gz build/out/sss-*.dmg ../sss-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit 1776=${COMMIT} --url 1776=${url} ../1776/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../1776/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/1776-*-osx-unsigned.tar.gz inputs/1776-osx-unsigned.tar.gz
+	    mv build/out/1776-*.tar.gz build/out/1776-*.dmg ../1776-binaries/${VERSION}
 	fi
 	popd
 
@@ -325,27 +325,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../sss/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../1776/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../sss/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../1776/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../sss/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../1776/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../sss/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../1776/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../sss/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../1776/contrib/gitian-descriptors/gitian-osx-signer.yml
 	popd
 fi
 
@@ -360,10 +360,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../sss/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../sss/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/sss-*win64-setup.exe ../sss-binaries/${VERSION}
-	    mv build/out/sss-*win32-setup.exe ../sss-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../1776/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../1776/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/1776-*win64-setup.exe ../1776-binaries/${VERSION}
+	    mv build/out/1776-*win32-setup.exe ../1776-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -371,9 +371,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../sss/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../sss/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/sss-osx-signed.dmg ../sss-binaries/${VERSION}/sss-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../1776/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p $signProg --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../1776/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/1776-osx-signed.dmg ../1776-binaries/${VERSION}/1776-${VERSION}-osx.dmg
 	fi
 	popd
 

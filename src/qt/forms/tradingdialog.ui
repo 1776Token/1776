@@ -181,7 +181,7 @@
       <string>Asks</string>
      </property>
     </widget>
-    <widget class="QLabel" name="SSSSupply">
+    <widget class="QLabel" name="1776Supply">
      <property name="geometry">
       <rect>
        <x>540</x>
@@ -197,7 +197,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="SSSDemand">
+    <widget class="QLabel" name="1776Demand">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -432,7 +432,7 @@
     <attribute name="title">
      <string>Buy</string>
     </attribute>
-    <widget class="QPushButton" name="BuySSS">
+    <widget class="QPushButton" name="Buy1776">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -442,10 +442,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>Buy SSS</string>
+      <string>Buy 1776</string>
      </property>
      <property name="icon">
-      <iconset resource="../sss.qrc">
+      <iconset resource="../1776.qrc">
        <normaloff>:/icons/bitcoin</normaloff>:/icons/bitcoin</iconset>
      </property>
     </widget>
@@ -512,7 +512,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>SSS</string>
+      <string>1776</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
@@ -1704,10 +1704,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>SSS</string>
+      <string>1776</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="UnitsInputSSS">
+    <widget class="QLineEdit" name="UnitsInput1776">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1741,7 +1741,7 @@
       </font>
      </property>
     </widget>
-    <widget class="QPushButton" name="SellSSSBTN">
+    <widget class="QPushButton" name="Sell1776BTN">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -1751,10 +1751,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>Sell SSS</string>
+      <string>Sell 1776</string>
      </property>
      <property name="icon">
-      <iconset resource="../sss">
+      <iconset resource="../1776">
        <normaloff>:/icons/bitcoin</normaloff>:/icons/bitcoin</iconset>
      </property>
     </widget>
@@ -1777,12 +1777,12 @@
          </font>
         </property>
         <property name="text">
-         <string>SSS Available:</string>
+         <string>1776 Available:</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="SSSAvailableLabel">
+       <widget class="QLabel" name="1776AvailableLabel">
         <property name="palette">
          <palette>
           <active>
@@ -2213,7 +2213,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="labelSSS">
+       <widget class="QLabel" name="label1776">
         <property name="font">
          <font>
           <weight>75</weight>
@@ -2221,7 +2221,7 @@
          </font>
         </property>
         <property name="text">
-         <string>SSS</string>
+         <string>1776</string>
         </property>
        </widget>
       </item>
@@ -2733,7 +2733,7 @@
       <string>TextLabel</string>
      </property>
     </widget>
-    <widget class="QLabel" name="SSSBalanceLabel">
+    <widget class="QLabel" name="1776BalanceLabel">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2762,7 +2762,7 @@
       </font>
      </property>
      <property name="text">
-      <string>SSS Balance:</string>
+      <string>1776 Balance:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_12">
@@ -2784,7 +2784,7 @@
       <string>BTC Balance:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="SSSAvailableLabel_2">
+    <widget class="QLabel" name="1776AvailableLabel_2">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2813,7 +2813,7 @@
       </font>
      </property>
      <property name="text">
-      <string>SSS Available:</string>
+      <string>1776 Available:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_14">
@@ -2832,10 +2832,10 @@
       </font>
      </property>
      <property name="text">
-      <string>SSS Pending:</string>
+      <string>1776 Pending:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="SSSPendingLabel">
+    <widget class="QLabel" name="1776PendingLabel">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2928,7 +2928,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Bittrex SSS Deposit Address:</string>
+      <string>Bittrex 1776 Deposit Address:</string>
      </property>
     </widget>
     <widget class="QPushButton" name="GenDepositBTN">
@@ -2941,10 +2941,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>Generate Pivx Deposit Address</string>
+      <string>Generate 1776 Deposit Address</string>
      </property>
      <property name="icon">
-      <iconset resource="../sss.qrc">
+      <iconset resource="../1776.qrc">
        <normaloff>:/icons/bitcoin</normaloff>:/icons/bitcoin</iconset>
      </property>
     </widget>
@@ -3155,7 +3155,7 @@
        <string notr="true">border: 1px solid #61696c;margin-left:4px;</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="btnConvertPivx">
+     <widget class="QPushButton" name="btnConvert1776">
       <property name="geometry">
        <rect>
         <x>260</x>
@@ -3206,7 +3206,7 @@
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="../sss.qrc">:/icons/transaction_1</pixmap>
+       <pixmap resource="../1776.qrc">:/icons/transaction_1</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -3253,7 +3253,7 @@
       <string>Update API Keys</string>
      </property>
      <property name="icon">
-      <iconset resource="../sss.qrc">
+      <iconset resource="../1776.qrc">
        <normaloff>:/icons/bitcoin</normaloff>:/icons/bitcoin</iconset>
      </property>
     </widget>
@@ -3408,7 +3408,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="../sss.qrc"/>
+  <include location="../1776.qrc"/>
  </resources>
  <connections/>
 </ui>

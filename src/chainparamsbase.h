@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between sss-cli and sssd)
- * of a given instance of the Pivx system.
+ * CBaseChainParams defines the base parameters (shared between 1776-cli and 1776d)
+ * of a given instance of the 1776 system.
  */
 class CBaseChainParams
 {

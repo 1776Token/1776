@@ -345,7 +345,7 @@
        <item row="16" column="0">
         <widget class="QPushButton" name="openDebugLogfileButton">
          <property name="toolTip">
-          <string>Open the SSS debug log file from the current data directory. This can take a few seconds for large log files.</string>
+          <string>Open the 1776 debug log file from the current data directory. This can take a few seconds for large log files.</string>
          </property>
          <property name="text">
           <string>&amp;Open</string>
@@ -414,7 +414,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../sss.qrc">
+            <iconset resource="../1776.qrc">
              <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
            </property>
            <property name="shortcut">
@@ -1348,7 +1348,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../sss.qrc"/>
+  <include location="../1776.qrc"/>
  </resources>
  <connections/>
 </ui>

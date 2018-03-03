@@ -1,0 +1,26 @@
+# /etc/conf.d/1776d: config file for /etc/init.d/1776d
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/1776/1776.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/1776d"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/1776d.pid"
+
+# Where to write 1776d data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/1776d"
+
+# User and group to own 1776d process
+#BITCOIND_USER="1776"
+#BITCOIND_GROUP="1776"
+
+# Path to 1776d executable
+#BITCOIND_BIN="/usr/bin/1776d"
+
+# Nice value to run 1776d under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

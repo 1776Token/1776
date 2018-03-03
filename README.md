@@ -1,14 +1,14 @@
-SSS Core integration/staging repository
+1776 integration/staging repository
 =====================================
 
-[![Build Status](https://travis-ci.org/SSS-Project/SSS.svg?branch=master)](https://travis-ci.org/SSS-Project/SSS) [![GitHub version](https://badge.fury.io/gh/SSS-Project%2FSSS.svg)](https://badge.fury.io/gh/SSS-Project%2FSSS)
+[![Build Status](https://travis-ci.org/1776-Project/1776.svg?branch=master)](https://travis-ci.org/1776-Project/1776) [![GitHub version](https://badge.fury.io/gh/1776-Project%2F1776.svg)](https://badge.fury.io/gh/1776-Project%2F1776)
 
-SSS is a cutting edge cryptocurrency, with many features not available in most other cryptocurrencies.
+1776 is a cutting edge cryptocurrency, with many features not available in most other cryptocurrencies.
 - Anonymized transactions using coin mixing technology, we call it _Obfuscation_.
 - Fast transactions featuring guaranteed zero confirmation transactions, we call it _SwiftTX_.
 - Decentralized blockchain voting providing for consensus based advancement of the current Masternode
   technology used to secure the network and provide the above features, each Masternode is secured
-  with collateral of 10m SSS
+  with collateral of 10m 1776
 
 
 ### Coin Specs

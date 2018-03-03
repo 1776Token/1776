@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2015-2017 The 1776 developers
 // Copyright (c) 2017 The ColossusCoinXT developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -31,7 +31,7 @@ using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// SSSMiner
+// 1776Miner
 //
 
 //
@@ -420,7 +420,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
-            return error("SSSMiner : generated block is stale");
+            return error("1776Miner : generated block is stale");
     }
 
     // Remove key from key pool
@@ -435,7 +435,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     // Process this block the same as if we had received it from another node
     CValidationState state;
     if (!ProcessNewBlock(state, NULL, pblock))
-        return error("SSSMiner : ProcessNewBlock, block not accepted");
+        return error("1776Miner : ProcessNewBlock, block not accepted");
 
     for (CNode* node : vNodes)
         node->PushInventory(CInv(MSG_BLOCK, pblock->GetHash()));
@@ -449,9 +449,9 @@ bool fGenerateBitcoins = false;
 
 void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 {
-    LogPrintf("SSSMiner started\n");
+    LogPrintf("1776Miner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("sss-miner");
+    RenameThread("1776-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -519,7 +519,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
             continue;
         }
 
-        LogPrintf("Running SSSMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+        LogPrintf("Running 1776Miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
             ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //

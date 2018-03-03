@@ -1,11 +1,11 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2015-2017 The 1776 developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/sss-config.h"
+#include "config/bitcoin-config.h"
 #endif
 
 #include "optionsmodel.h"
@@ -61,7 +61,7 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", BitcoinUnits::SSS);
+        settings.setValue("nDisplayUnit", BitcoinUnits::X1776);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
@@ -75,11 +75,11 @@ void OptionsModel::Init()
     if (!settings.contains("nObfuscationRounds"))
         settings.setValue("nObfuscationRounds", 2);
 
-    if (!settings.contains("nAnonymizePivxAmount"))
-        settings.setValue("nAnonymizePivxAmount", 1000);
+    if (!settings.contains("nAnonymize1776Amount"))
+        settings.setValue("nAnonymize1776Amount", 1000);
 
     nObfuscationRounds = settings.value("nObfuscationRounds").toLongLong();
-    nAnonymizePivxAmount = settings.value("nAnonymizePivxAmount").toLongLong();
+    nAnonymize1776Amount = settings.value("nAnonymize1776Amount").toLongLong();
 
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
@@ -146,8 +146,8 @@ void OptionsModel::Init()
 
     if (settings.contains("nObfuscationRounds"))
         SoftSetArg("-obfuscationrounds", settings.value("nObfuscationRounds").toString().toStdString());
-    if (settings.contains("nAnonymizePivxAmount"))
-        SoftSetArg("-anonymizesssamount", settings.value("nAnonymizePivxAmount").toString().toStdString());
+    if (settings.contains("nAnonymize1776Amount"))
+        SoftSetArg("-anonymize1776amount", settings.value("nAnonymize1776Amount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -158,7 +158,7 @@ void OptionsModel::Reset()
 
     // Remove all entries from our QSettings object
     settings.clear();
-    resetSettings = true; // Needed in sss.cpp during shotdown to also remove the window positions
+    resetSettings = true; // Needed in 1776.cpp during shotdown to also remove the window positions
 
     // default setting for OptionsModel::StartAtStartup - disabled
     if (GUIUtil::GetStartOnSystemStartup())
@@ -227,8 +227,8 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nThreadsScriptVerif");
         case ObfuscationRounds:
             return QVariant(nObfuscationRounds);
-        case AnonymizePivxAmount:
-            return QVariant(nAnonymizePivxAmount);
+        case Anonymize1776Amount:
+            return QVariant(nAnonymize1776Amount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -337,10 +337,10 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             settings.setValue("nObfuscationRounds", nObfuscationRounds);
             emit obfuscationRoundsChanged(nObfuscationRounds);
             break;
-        case AnonymizePivxAmount:
-            nAnonymizePivxAmount = value.toInt();
-            settings.setValue("nAnonymizePivxAmount", nAnonymizePivxAmount);
-            emit anonymizePivxAmountChanged(nAnonymizePivxAmount);
+        case Anonymize1776Amount:
+            nAnonymize1776Amount = value.toInt();
+            settings.setValue("nAnonymize1776Amount", nAnonymize1776Amount);
+            emit anonymize1776AmountChanged(nAnonymize1776Amount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();

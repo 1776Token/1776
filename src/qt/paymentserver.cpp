@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2015-2017 The 1776 developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,14 +52,14 @@ using namespace boost;
 using namespace std;
 
 const int BITCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
-const QString BITCOIN_IPC_PREFIX("sss:");
+const QString BITCOIN_IPC_PREFIX("1776:");
 // BIP70 payment protocol messages
 const char* BIP70_MESSAGE_PAYMENTACK = "PaymentACK";
 const char* BIP70_MESSAGE_PAYMENTREQUEST = "PaymentRequest";
 // BIP71 payment protocol media types
-const char* BIP71_MIMETYPE_PAYMENT = "application/sss-payment";
-const char* BIP71_MIMETYPE_PAYMENTACK = "application/sss-paymentack";
-const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/sss-paymentrequest";
+const char* BIP71_MIMETYPE_PAYMENT = "application/1776-payment";
+const char* BIP71_MIMETYPE_PAYMENTACK = "application/1776-paymentack";
+const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/1776-paymentrequest";
 // BIP70 max payment request size in bytes (DoS protection)
 const qint64 BIP70_MAX_PAYMENTREQUEST_SIZE = 50000;
 
@@ -193,11 +193,11 @@ void PaymentServer::ipcParseCommandLine(int argc, char* argv[])
         if (arg.startsWith("-"))
             continue;
 
-        // If the sss: URI contains a payment request, we are not able to detect the
+        // If the 1776: URI contains a payment request, we are not able to detect the
         // network as that would require fetching and parsing the payment request.
         // That means clicking such an URI which contains a testnet payment request
         // will start a mainnet instance and throw a "wrong network" error.
-        if (arg.startsWith(BITCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // sss: URI
+        if (arg.startsWith(BITCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // 1776: URI
         {
             savedPaymentRequests.append(arg);
 
@@ -279,7 +279,7 @@ PaymentServer::PaymentServer(QObject* parent, bool startLocalServer) : QObject(p
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
     // Install global event filter to catch QFileOpenEvents
-    // on Mac: sent when you click sss: links
+    // on Mac: sent when you click 1776: links
     // other OSes: helpful when dealing with payment request files (in the future)
     if (parent)
         parent->installEventFilter(this);
@@ -295,7 +295,7 @@ PaymentServer::PaymentServer(QObject* parent, bool startLocalServer) : QObject(p
         if (!uriServer->listen(name)) {
             // constructor is called early in init, so don't use "emit message()" here
             QMessageBox::critical(0, tr("Payment request error"),
-                tr("Cannot start sss: click-to-pay handler"));
+                tr("Cannot start 1776: click-to-pay handler"));
         } else {
             connect(uriServer, SIGNAL(newConnection()), this, SLOT(handleURIConnection()));
             connect(this, SIGNAL(receivedPaymentACK(QString)), this, SLOT(handlePaymentACK(QString)));
@@ -309,12 +309,12 @@ PaymentServer::~PaymentServer()
 }
 
 //
-// OSX-specific way of handling sss: URIs and
+// OSX-specific way of handling 1776: URIs and
 // PaymentRequest mime types
 //
 bool PaymentServer::eventFilter(QObject* object, QEvent* event)
 {
-    // clicking on sss: URIs creates FileOpen events on the Mac
+    // clicking on 1776: URIs creates FileOpen events on the Mac
     if (event->type() == QEvent::FileOpen) {
         QFileOpenEvent* fileEvent = static_cast<QFileOpenEvent*>(event);
         if (!fileEvent->file().isEmpty())
@@ -335,7 +335,7 @@ void PaymentServer::initNetManager()
     if (netManager != NULL)
         delete netManager;
 
-    // netManager is used to fetch paymentrequests given in sss: URIs
+    // netManager is used to fetch paymentrequests given in 1776: URIs
     netManager = new QNetworkAccessManager(this);
 
     QNetworkProxy proxy;
@@ -372,7 +372,7 @@ void PaymentServer::handleURIOrFile(const QString& s)
         return;
     }
 
-    if (s.startsWith(BITCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // sss: URI
+    if (s.startsWith(BITCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // 1776: URI
     {
 #if QT_VERSION < 0x050000
         QUrl uri(s);
@@ -524,7 +524,7 @@ bool PaymentServer::processPaymentRequest(PaymentRequestPlus& request, SendCoins
             // Append destination address
             addresses.append(QString::fromStdString(CBitcoinAddress(dest).ToString()));
         } else if (!recipient.authenticatedMerchant.isEmpty()) {
-            // Insecure payments to custom sss addresses are not supported
+            // Insecure payments to custom 1776 addresses are not supported
             // (there is no good way to tell the user where they are paying in a way
             // they'd have a chance of understanding).
             emit message(tr("Payment request rejected"),

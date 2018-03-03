@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2015-2017 The 1776 developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,18 +19,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(SSS);
-    unitlist.append(mSSS);
-    unitlist.append(uSSS);
+    unitlist.append(X1776);
+    unitlist.append(m1776);
+    unitlist.append(u1776);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case SSS:
-    case mSSS:
-    case uSSS:
+    case X1776:
+    case m1776:
+    case u1776:
         return true;
     default:
         return false;
@@ -40,12 +40,12 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case SSS:
-        return QString("sss");
-    case mSSS:
-        return QString("msss");
-    case uSSS:
-        return QString::fromUtf8("usss");
+    case X1776:
+        return QString("1776");
+    case m1776:
+        return QString("m1776");
+    case u1776:
+        return QString::fromUtf8("u1776");
     default:
         return QString("???");
     }
@@ -55,23 +55,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case SSS:
-            return QString("SSS");
-        case mSSS:
-            return QString("mSSS");
-        case uSSS:
-            return QString::fromUtf8("μSSS");
+        case X1776:
+            return QString("1776");
+        case m1776:
+            return QString("m1776");
+        case u1776:
+            return QString::fromUtf8("μ1776");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case SSS:
-            return QString("tSSS");
-        case mSSS:
-            return QString("mtSSS");
-        case uSSS:
-            return QString::fromUtf8("μtSSS");
+        case X1776:
+            return QString("t1776");
+        case m1776:
+            return QString("mt1776");
+        case u1776:
+            return QString::fromUtf8("μt1776");
         default:
             return QString("???");
         }
@@ -82,23 +82,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case SSS:
-            return QString("SSS");
-        case mSSS:
-            return QString("Milli-SSS (1 / 1" THIN_SP_UTF8 "000)");
-        case uSSS:
-            return QString("Micro-SSS (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case X1776:
+            return QString("1776");
+        case m1776:
+            return QString("Milli-1776 (1 / 1" THIN_SP_UTF8 "000)");
+        case u1776:
+            return QString("Micro-1776 (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case SSS:
-            return QString("TestSSSs");
-        case mSSS:
-            return QString("Milli-TestSSS (1 / 1" THIN_SP_UTF8 "000)");
-        case uSSS:
-            return QString("Micro-TestSSS (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case X1776:
+            return QString("Test1776s");
+        case m1776:
+            return QString("Milli-Test1776 (1 / 1" THIN_SP_UTF8 "000)");
+        case u1776:
+            return QString("Micro-Test1776 (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -108,11 +108,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case SSS:
+    case X1776:
         return 100000000;
-    case mSSS:
+    case m1776:
         return 100000;
-    case uSSS:
+    case u1776:
         return 100;
     default:
         return 100000000;
@@ -122,11 +122,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case SSS:
+    case X1776:
         return 8;
-    case mSSS:
+    case m1776:
         return 5;
-    case uSSS:
+    case u1776:
         return 2;
     default:
         return 0;

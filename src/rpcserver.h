@@ -95,7 +95,7 @@ public:
 };
 
 /**
- * SSS RPC command dispatcher.
+ * 1776 RPC command dispatcher.
  */
 class CRPCTable
 {

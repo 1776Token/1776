@@ -78,7 +78,7 @@ HEADERS += src/activemasternode.h \
            src/crypter.h \
            src/obfuscation-relay.h \
            src/obfuscation.h \
-           src/sss-config.h \
+           src/bitcoin-config.h \
            src/db.h \
            src/eccryptoverify.h \
            src/ecwrapper.h \
@@ -131,7 +131,7 @@ HEADERS += src/activemasternode.h \
            src/wallet_ismine.h \
            src/walletdb.h \
            src/compat/sanity.h \
-           src/config/sss-config.h \
+           src/config/bitcoin-config.h \
            src/crypto/common.h \
            src/crypto/hmac_sha256.h \
            src/crypto/hmac_sha512.h \
@@ -333,7 +333,7 @@ HEADERS += src/activemasternode.h \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.h \
            src/crypto/aes_helper.c \
            src/qt/bitcoinamountfield.moc \
-           src/qt/sss.moc \
+           src/qt/1776.moc \
            src/qt/intro.moc \
            src/qt/overviewpage.moc \
            src/qt/rpcconsole.moc \
@@ -26673,8 +26673,8 @@ HEADERS += src/activemasternode.h \
     ../depends/x86_64-w64-mingw32/include/qrencode.h \
     ../share/ui.rc \
     ../src/compat/sanity.h \
-    ../src/config/sss-config.h \
-    ../src/config/sss-config.h.in \
+    ../src/config/bitcoin-config.h \
+    ../src/config/bitcoin-config.h.in \
     ../src/crypto/common.h \
     ../src/crypto/hmac_sha256.h \
     ../src/crypto/hmac_sha512.h \
@@ -26932,8 +26932,8 @@ HEADERS += src/activemasternode.h \
     ../src/rpcserver.h \
     ../src/serialize.h \
     ../src/spork.h \
-    ../src/sss-cli-res.rc \
-    ../src/sssd-res.rc \
+    ../src/1776-cli-res.rc \
+    ../src/1776d-res.rc \
     ../src/streams.h \
     ../src/swifttx.h \
     ../src/sync.h \
@@ -27014,9 +27014,9 @@ SOURCES += src/activemasternode.cpp \
            src/crypter.cpp \
            src/obfuscation-relay.cpp \
            src/obfuscation.cpp \
-           src/sss-cli.cpp \
-           src/sss-tx.cpp \
-           src/sss.cpp \
+           src/1776-cli.cpp \
+           src/1776-tx.cpp \
+           src/1776.cpp \
            src/db.cpp \
            src/eccryptoverify.cpp \
            src/ecwrapper.cpp \
@@ -27111,8 +27111,8 @@ SOURCES += src/activemasternode.cpp \
            src/qt/coincontroltreewidget.cpp \
            src/qt/csvmodelwriter.cpp \
            src/qt/obfuscationconfig.cpp \
-           src/qt/sss.cpp \
-           src/qt/sssstrings.cpp \
+           src/qt/1776.cpp \
+           src/qt/1776strings.cpp \
            src/qt/editaddressdialog.cpp \
            src/qt/guiutil.cpp \
            src/qt/intro.cpp \
@@ -27190,7 +27190,7 @@ SOURCES += src/activemasternode.cpp \
            src/test/sighash_tests.cpp \
            src/test/sigopcount_tests.cpp \
            src/test/skiplist_tests.cpp \
-           src/test/test_sss.cpp \
+           src/test/test_1776.cpp \
            src/test/timedata_tests.cpp \
            src/test/transaction_tests.cpp \
            src/test/uint256_tests.cpp \
@@ -27400,7 +27400,7 @@ SOURCES += src/activemasternode.cpp \
     ../src/qt/paymentrequestplus.cpp \
     ../src/qt/paymentserver.cpp \
     ../src/qt/peertablemodel.cpp \
-    ../src/qt/pivxstrings.cpp \
+    ../src/qt/1776strings.cpp \
     ../src/qt/platformstyle.cpp \
     ../src/qt/qvalidatedlineedit.cpp \
     ../src/qt/qvaluecombobox.cpp \
@@ -27412,7 +27412,7 @@ SOURCES += src/activemasternode.cpp \
     ../src/qt/sendcoinsentry.cpp \
     ../src/qt/signverifymessagedialog.cpp \
     ../src/qt/splashscreen.cpp \
-    ../src/qt/sss.cpp \
+    ../src/qt/1776.cpp \
     ../src/qt/trafficgraphwidget.cpp \
     ../src/qt/transactiondesc.cpp \
     ../src/qt/transactiondescdialog.cpp \
@@ -27468,7 +27468,7 @@ SOURCES += src/activemasternode.cpp \
     ../src/test/sighash_tests.cpp \
     ../src/test/sigopcount_tests.cpp \
     ../src/test/skiplist_tests.cpp \
-    ../src/test/test_sss.cpp \
+    ../src/test/test_1776.cpp \
     ../src/test/timedata_tests.cpp \
     ../src/test/transaction_tests.cpp \
     ../src/test/uint256_tests.cpp \
@@ -27542,9 +27542,9 @@ SOURCES += src/activemasternode.cpp \
     ../src/rpcserver.cpp \
     ../src/rpcwallet.cpp \
     ../src/spork.cpp \
-    ../src/sss-cli.cpp \
-    ../src/sss-tx.cpp \
-    ../src/sssd.cpp \
+    ../src/1776-cli.cpp \
+    ../src/1776-tx.cpp \
+    ../src/1776d.cpp \
     ../src/swifttx.cpp \
     ../src/sync.cpp \
     ../src/timedata.cpp \
@@ -27852,26 +27852,26 @@ SOURCES += src/activemasternode.cpp \
     ../src/secp256k1/src/tests.c \
     ../src/qt/macdockiconhandler.mm \
     ../src/qt/macnotificationhandler.mm
-RESOURCES += src/qt/sss.qrc src/qt/sss_locale.qrc \
-    ../src/qt/sss.qrc \
-    ../src/qt/sss_locale.qrc
+RESOURCES += src/qt/1776.qrc src/qt/1776_locale.qrc \
+    ../src/qt/1776.qrc \
+    ../src/qt/1776_locale.qrc
 
-TRANSLATIONS += src/qt/locale/sss_bg.ts \
-                src/qt/locale/sss_de.ts \
-                src/qt/locale/sss_en.ts \
-                src/qt/locale/sss_es.ts \
-                src/qt/locale/sss_fi.ts \
-                src/qt/locale/sss_fr.ts \
-                src/qt/locale/sss_it.ts \
-                src/qt/locale/sss_ja.ts \
-                src/qt/locale/sss_pl.ts \
-                src/qt/locale/sss_pt.ts \
-                src/qt/locale/sss_ru.ts \
-                src/qt/locale/sss_sk.ts \
-                src/qt/locale/sss_sv.ts \
-                src/qt/locale/sss_vi.ts \
-                src/qt/locale/sss_zh_CN.ts \
-                src/qt/locale/sss_zh_TW.ts
+TRANSLATIONS += src/qt/locale/1776_bg.ts \
+                src/qt/locale/1776_de.ts \
+                src/qt/locale/1776_en.ts \
+                src/qt/locale/1776_es.ts \
+                src/qt/locale/1776_fi.ts \
+                src/qt/locale/1776_fr.ts \
+                src/qt/locale/1776_it.ts \
+                src/qt/locale/1776_ja.ts \
+                src/qt/locale/1776_pl.ts \
+                src/qt/locale/1776_pt.ts \
+                src/qt/locale/1776_ru.ts \
+                src/qt/locale/1776_sk.ts \
+                src/qt/locale/1776_sv.ts \
+                src/qt/locale/1776_vi.ts \
+                src/qt/locale/1776_zh_CN.ts \
+                src/qt/locale/1776_zh_TW.ts
 
 DISTFILES += \
     ../src/test/data/base58_encode_decode.json \
@@ -28085,7 +28085,7 @@ DISTFILES += \
     ../depends/sources/qttools-opensource-src-5.6.1.tar.gz \
     ../depends/sources/qttranslations-opensource-src-5.6.1.tar.gz \
     ../depends/sources/zeromq-4.1.4.tar.gz \
-    debian/pivx-qt.desktop \
+    debian/1776-qt.desktop \
     ../depends/i686-w64-mingw32/native/bin/ccache \
     ../depends/i686-w64-mingw32/native/bin/lrelease \
     ../depends/i686-w64-mingw32/native/bin/moc \
@@ -28721,7 +28721,7 @@ DISTFILES += \
     ../build-aux/test-driver \
     devtools/split-debug.sh \
     devtools/split-debug.sh.in \
-    init/pivxd.init \
+    init/1776d.init \
     macdeploy/detached-sig-apply.sh \
     macdeploy/detached-sig-create.sh \
     qos/tc.sh \
@@ -28899,12 +28899,12 @@ DISTFILES += \
     ../src/qt/res/icons/tx_input.png \
     ../src/qt/res/icons/tx_mined.png \
     ../src/qt/res/icons/tx_output.png \
-    ../src/qt/res/icons/unit_msss.png \
-    ../src/qt/res/icons/unit_sss.png \
-    ../src/qt/res/icons/unit_tmsss.png \
-    ../src/qt/res/icons/unit_tsss.png \
-    ../src/qt/res/icons/unit_tusss.png \
-    ../src/qt/res/icons/unit_usss.png \
+    ../src/qt/res/icons/unit_m1776.png \
+    ../src/qt/res/icons/unit_1776.png \
+    ../src/qt/res/icons/unit_tm1776.png \
+    ../src/qt/res/icons/unit_t1776.png \
+    ../src/qt/res/icons/unit_tu1776.png \
+    ../src/qt/res/icons/unit_u1776.png \
     ../src/qt/res/images/1776_logo_horizontal.png \
     ../src/qt/res/images/about.png \
     ../src/qt/res/images/downArrow.png \
@@ -28916,7 +28916,7 @@ DISTFILES += \
     ../src/qt/res/images/splash.png \
     ../src/qt/res/images/splash_testnet.png \
     ../src/qt/res/images/splashxx.png \
-    ../src/qt/res/images/sss_logo_horizontal.png \
+    ../src/qt/res/images/1776_logo_horizontal.png \
     ../src/qt/res/images/upArrow_small.png \
     ../src/qt/res/images/walletFrame.png \
     ../src/qt/res/images/walletFrame_bg.png \
@@ -29044,31 +29044,31 @@ DISTFILES += \
     ../autom4te.cache/requests \
     ../autom4te.cache/traces.0 \
     ../autom4te.cache/traces.1 \
-    debian/manpages/pivx-qt.1 \
-    debian/manpages/pivx.conf.5 \
-    debian/manpages/pivxd.1 \
+    debian/manpages/1776-qt.1 \
+    debian/manpages/1776.conf.5 \
+    debian/manpages/1776d.1 \
     debian/patches/series \
     debian/source/format \
     debian/compat \
     debian/control \
     debian/copyright \
     debian/gbp.conf \
-    debian/pivx-qt.install \
-    debian/pivx-qt.lintian-overrides \
-    debian/pivx-qt.protocol \
-    debian/pivxd.bash-completion \
-    debian/pivxd.examples \
-    debian/pivxd.install \
-    debian/pivxd.lintian-overrides \
-    debian/pivxd.manpages \
+    debian/1776-qt.install \
+    debian/1776-qt.lintian-overrides \
+    debian/1776-qt.protocol \
+    debian/1776d.bash-completion \
+    debian/1776d.examples \
+    debian/1776d.install \
+    debian/1776d.lintian-overrides \
+    debian/1776d.manpages \
     debian/watch \
-    init/pivxd.conf \
-    init/pivxd.openrc \
-    init/pivxd.openrcconf \
-    init/pivxd.service \
+    init/1776d.conf \
+    init/1776d.openrc \
+    init/1776d.openrcconf \
+    init/1776d.service \
     linearize/example-linearize.cfg \
     macdeploy/LICENSE \
-    pivxd.bash-completion \
+    1776d.bash-completion \
     ../depends/built/i686-w64-mingw32/bdb/bdb-4.8.30-9358dfed00f.tar.gz.hash \
     ../depends/built/i686-w64-mingw32/boost/boost-1_59_0-a602ab476bc.tar.gz.hash \
     ../depends/built/i686-w64-mingw32/libevent/libevent-2.0.22-0c2f703e5e1.tar.gz.hash \
@@ -29239,30 +29239,30 @@ DISTFILES += \
     ../depends/work/build/x86_64-apple-darwin11/native_cdrkit/1.1.11-732dba76070/readom/readom.1 \
     ../depends/work/build/x86_64-apple-darwin11/native_cdrkit/1.1.11-732dba76070/wodim/wodim.1 \
     ../depends/x86_64-w64-mingw32/native/share/man/man1/ccache.1 \
-    ../src/qt/locale/sss_bg.ts \
-    ../src/qt/locale/sss_ca.ts \
-    ../src/qt/locale/sss_cs.ts \
-    ../src/qt/locale/sss_da.ts \
-    ../src/qt/locale/sss_de.ts \
-    ../src/qt/locale/sss_en.ts \
-    ../src/qt/locale/sss_en_US.ts \
-    ../src/qt/locale/sss_es.ts \
-    ../src/qt/locale/sss_fi.ts \
-    ../src/qt/locale/sss_fr_FR.ts \
-    ../src/qt/locale/sss_it.ts \
-    ../src/qt/locale/sss_ja.ts \
-    ../src/qt/locale/sss_ko_KR.ts \
-    ../src/qt/locale/sss_nl.ts \
-    ../src/qt/locale/sss_pl.ts \
-    ../src/qt/locale/sss_pt.ts \
-    ../src/qt/locale/sss_pt_BR.ts \
-    ../src/qt/locale/sss_ro_RO.ts \
-    ../src/qt/locale/sss_ru.ts \
-    ../src/qt/locale/sss_sk.ts \
-    ../src/qt/locale/sss_sv.ts \
-    ../src/qt/locale/sss_uk.ts \
-    ../src/qt/locale/sss_zh_CN.ts \
-    ../src/qt/locale/sss_zh_TW.ts \
+    ../src/qt/locale/1776_bg.ts \
+    ../src/qt/locale/1776_ca.ts \
+    ../src/qt/locale/1776_cs.ts \
+    ../src/qt/locale/1776_da.ts \
+    ../src/qt/locale/1776_de.ts \
+    ../src/qt/locale/1776_en.ts \
+    ../src/qt/locale/1776_en_US.ts \
+    ../src/qt/locale/1776_es.ts \
+    ../src/qt/locale/1776_fi.ts \
+    ../src/qt/locale/1776_fr_FR.ts \
+    ../src/qt/locale/1776_it.ts \
+    ../src/qt/locale/1776_ja.ts \
+    ../src/qt/locale/1776_ko_KR.ts \
+    ../src/qt/locale/1776_nl.ts \
+    ../src/qt/locale/1776_pl.ts \
+    ../src/qt/locale/1776_pt.ts \
+    ../src/qt/locale/1776_pt_BR.ts \
+    ../src/qt/locale/1776_ro_RO.ts \
+    ../src/qt/locale/1776_ru.ts \
+    ../src/qt/locale/1776_sk.ts \
+    ../src/qt/locale/1776_sv.ts \
+    ../src/qt/locale/1776_uk.ts \
+    ../src/qt/locale/1776_zh_CN.ts \
+    ../src/qt/locale/1776_zh_TW.ts \
     ../src/secp256k1/src/field_5x52_asm.asm \
     ../src/leveldb/AUTHORS \
     debian/changelog \
@@ -29346,7 +29346,7 @@ DISTFILES += \
     ../depends/packages/xtrans.mk \
     ../depends/packages/zeromq.mk \
     ../depends/funcs.mk \
-    debian/examples/pivx.conf \
+    debian/examples/1776.conf \
     ../depends/i686-w64-mingw32/include/boost/pool/detail/pool_construct.ipp \
     ../depends/i686-w64-mingw32/include/boost/pool/detail/pool_construct_simple.ipp \
     ../depends/i686-w64-mingw32/include/boost/tr1/tr1/exception \

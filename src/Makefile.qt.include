@@ -1,32 +1,32 @@
-bin_PROGRAMS += qt/sss-qt
+bin_PROGRAMS += qt/1776-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
-# sss qt core #
+# 1776 qt core #
 QT_TS = \
-  qt/locale/sss_bg.ts \
-  qt/locale/sss_ca.ts \
-  qt/locale/sss_cs.ts \
-  qt/locale/sss_da.ts \
-  qt/locale/sss_de.ts \
-  qt/locale/sss_en.ts \
-  qt/locale/sss_en_US.ts \
-  qt/locale/sss_es.ts \
-  qt/locale/sss_fi.ts \
-  qt/locale/sss_fr_FR.ts \
-  qt/locale/sss_it.ts \
-  qt/locale/sss_ja.ts \
-  qt/locale/sss_ko_KR.ts \
-  qt/locale/sss_nl.ts \
-  qt/locale/sss_pl.ts \
-  qt/locale/sss_pt.ts \
-  qt/locale/sss_pt_BR.ts \
-  qt/locale/sss_ro_RO.ts \
-  qt/locale/sss_ru.ts \
-  qt/locale/sss_sk.ts \
-  qt/locale/sss_sv.ts \
-  qt/locale/sss_uk.ts \
-  qt/locale/sss_zh_CN.ts \
-  qt/locale/sss_zh_TW.ts
+  qt/locale/1776_bg.ts \
+  qt/locale/1776_ca.ts \
+  qt/locale/1776_cs.ts \
+  qt/locale/1776_da.ts \
+  qt/locale/1776_de.ts \
+  qt/locale/1776_en.ts \
+  qt/locale/1776_en_US.ts \
+  qt/locale/1776_es.ts \
+  qt/locale/1776_fi.ts \
+  qt/locale/1776_fr_FR.ts \
+  qt/locale/1776_it.ts \
+  qt/locale/1776_ja.ts \
+  qt/locale/1776_ko_KR.ts \
+  qt/locale/1776_nl.ts \
+  qt/locale/1776_pl.ts \
+  qt/locale/1776_pt.ts \
+  qt/locale/1776_pt_BR.ts \
+  qt/locale/1776_ro_RO.ts \
+  qt/locale/1776_ru.ts \
+  qt/locale/1776_sk.ts \
+  qt/locale/1776_sv.ts \
+  qt/locale/1776_uk.ts \
+  qt/locale/1776_zh_CN.ts \
+  qt/locale/1776_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -106,16 +106,16 @@ BITCOIN_MM = \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/sss.moc \
+  qt/1776.moc \
   qt/bitcoinamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_sss.cpp
-QT_QRC = qt/sss.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_sss_locale.cpp
-QT_QRC_LOCALE = qt/sss_locale.qrc
+QT_QRC_CPP = qt/qrc_1776.cpp
+QT_QRC = qt/1776.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_1776_locale.cpp
+QT_QRC_LOCALE = qt/1776_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
@@ -229,12 +229,12 @@ RES_ICONS = \
   qt/res/icons/tx_input.png \
   qt/res/icons/tx_output.png \
   qt/res/icons/tx_mined.png \
-  qt/res/icons/unit_sss.png \
-  qt/res/icons/unit_msss.png \
-  qt/res/icons/unit_usss.png \
-  qt/res/icons/unit_tsss.png \
-  qt/res/icons/unit_tmsss.png \
-  qt/res/icons/unit_tusss.png
+  qt/res/icons/unit_1776.png \
+  qt/res/icons/unit_m1776.png \
+  qt/res/icons/unit_u1776.png \
+  qt/res/icons/unit_t1776.png \
+  qt/res/icons/unit_tm1776.png \
+  qt/res/icons/unit_tu1776.png
 
 BITCOIN_QT_CPP = \
   qt/bitcoinaddressvalidator.cpp \
@@ -301,7 +301,7 @@ RES_IMAGES = \
   qt/res/images/about.png \
   qt/res/images/splash.png \
   qt/res/images/splash_testnet.png \
-  qt/res/images/sss_logo_horizontal.png \
+  qt/res/images/1776_logo_horizontal.png \
   qt/res/images/downArrow.png \
   qt/res/images/downArrow_small.png \
   qt/res/images/upArrow_small.png \
@@ -337,68 +337,68 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libbitcoinqt_a_OBJECTS) $(qt_sss_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libbitcoinqt_a_OBJECTS) $(qt_1776_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# sss-qt binary #
-qt_sss_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+# 1776-qt binary #
+qt_1776_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-qt_sss_qt_SOURCES = qt/sss.cpp
+qt_1776_qt_SOURCES = qt/1776.cpp
 if TARGET_DARWIN
-  qt_sss_qt_SOURCES += $(BITCOIN_MM)
+  qt_1776_qt_SOURCES += $(BITCOIN_MM)
 endif
 if TARGET_WINDOWS
-  qt_sss_qt_SOURCES += $(BITCOIN_RC)
+  qt_1776_qt_SOURCES += $(BITCOIN_RC)
 endif
-qt_sss_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+qt_1776_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-qt_sss_qt_LDADD += $(LIBBITCOIN_WALLET)
+qt_1776_qt_LDADD += $(LIBBITCOIN_WALLET)
 endif
 if ENABLE_ZMQ
-qt_sss_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+qt_1776_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
-qt_sss_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_1776_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBBITCOIN_UNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1)
-qt_sss_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_sss_qt_LIBTOOLFLAGS = --tag CXX
+qt_1776_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_1776_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 .SECONDARY: $(QT_QM)
 
-qt/sssstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
+qt/1776strings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: qt/sssstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: qt/1776strings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/sss_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/1776_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@test -f $(@D)/$(<F) || cp -f $< $(@D)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name sss_locale $(@D)/$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name 1776_locale $(@D)/$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name sss $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name 1776 $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-sss_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_sss_qt_OBJECTS) qt/sss-qt$(EXEEXT) $(LIBBITCOINQT)
+1776_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_1776_qt_OBJECTS) qt/1776-qt$(EXEEXT) $(LIBBITCOINQT)
 
-sss_qt : qt/sss-qt$(EXEEXT)
+1776_qt : qt/1776-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

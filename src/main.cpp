@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2015-2017 The 1776 developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -41,7 +41,7 @@ using namespace boost;
 using namespace std;
 
 #if defined(NDEBUG)
-#error "SSS cannot be compiled without assertions."
+#error "1776 cannot be compiled without assertions."
 #endif
 
 /**
@@ -1613,11 +1613,11 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight, CAmount nFees, bool fBudgetBlock)
 {
     /**
-     * Block 1: 12 Billions SSS pre-mined
+     * Block 1: 12 Billions 1776 pre-mined
      Block Reward:
-     Blocks 2 - 151,200 - 2500 SSS
-     Blocks 151,201 - 302,399 - 1250 SSS
-     Blocks 302,400 - Infinite:  1000 SSS
+     Blocks 2 - 151,200 - 2500 1776
+     Blocks 151,201 - 302,399 - 1250 1776
+     Blocks 302,400 - Infinite:  1000 1776
      Proof of Stake Schedule - 5% to proposals for all phases
      95% distributed to stake wallet and master node
      */
@@ -2044,7 +2044,7 @@ static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck()
 {
-    RenameThread("sss-scriptch");
+    RenameThread("1776-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2197,7 +2197,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                 nHeight = (*mi).second->nHeight + 1;
         }
 
-        // SSS
+        // 1776
         // It is entierly possible that we don't have enough data and this could fail
         // (i.e. the block could indeed be valid). Store the block for later consideration
         // but issue an initial reject message.

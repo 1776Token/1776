@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both sssd and sss-qt, to make it harder for attackers to
+ * for both 1776d and 1776-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("1776 Core");
+const std::string CLIENT_NAME("1776");
 
 /**
  * Client version number

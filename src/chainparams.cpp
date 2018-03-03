@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2015-2017 The 1776 developers
 // Copyright (c) 2017 The ColossusCoinXT developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -184,11 +184,13 @@ public:
         assert(hashGenesisBlock == uint256("000006533a058bf35e6b1116f0da8a2dd60c4de747ffc1a69408ebeb4415dd3f"));
         assert(genesis.hashMerkleRoot == uint256("e874a2a2faa556e6d9808723233dad49becc217fcb1c6e182e6c62118aeb5101"));
 
-        vFixedSeeds.clear();
-        vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("104.131.23.88", "104.131.23.88")); 
-        vSeeds.push_back(CDNSSeedData("104.131.30.157", "104.131.30.157")); 
-        //vSeeds.push_back(CDNSSeedData("67.199.118.93", "67.199.118.93")); 
+        //vFixedSeeds.clear();
+        //vSeeds.clear();
+        vSeeds.push_back(CDNSSeedData("144.202.50.49", "144.202.50.49")); 
+		vSeeds.push_back(CDNSSeedData("104.207.138.184", "104.207.138.184"));
+		vSeeds.push_back(CDNSSeedData("207.246.66.179", "207.246.66.179")); 
+		vSeeds.push_back(CDNSSeedData("45.77.6.132", "45.77.6.132"));
+		
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 0x17);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 0x76);
@@ -294,12 +296,12 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 8); // Testnet pivx addresses start with 'x' or 'y'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 133);  // Testnet pivx script addresses start with '8' or '9'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 8); // Testnet 1776 addresses start with 'x' or 'y'
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 133);  // Testnet 1776 script addresses start with '8' or '9'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 127);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-         // Testnet pivx BIP32 pubkeys start with 'DRKV'
+         // Testnet 1776 BIP32 pubkeys start with 'DRKV'
          base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(177)(60)(206)(172).convert_to_container<std::vector<unsigned char> >();
-         // Testnet pivx BIP32 prvkeys start with 'DRKP'
+         // Testnet 1776 BIP32 prvkeys start with 'DRKP'
          base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(177)(61)(214)(147).convert_to_container<std::vector<unsigned char> >();
          // Testnet 1776 BIP44 coin type is '1' (All coin's testnet default)
          base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
@@ -347,8 +349,8 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 24 * 60 * 60; // Pivx: 1 day
-        nTargetSpacing = 1 * 60;        // Pivx: 1 minutes
+        nTargetTimespan = 24 * 60 * 60; // 1776: 1 day
+        nTargetSpacing = 1 * 60;        // 1776: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1509477776;
         genesis.nBits = 0x207fffff;

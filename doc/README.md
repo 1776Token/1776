@@ -41,7 +41,7 @@ The following are developer notes on how to build 1776 on your native platform. 
 
 Development
 ---------------------
-The 1776 repo's [root README](https://github.com/1776/1776/blob/master/README.md) contains relevant information on the development process and automated testing.
+The 1776 repo's [root README](https://github.com/1776-Token/1776/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

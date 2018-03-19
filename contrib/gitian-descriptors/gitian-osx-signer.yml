@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/1776/1776-detached-sigs.git"
+- "url": "https://github.com/1776-Token/1776-detached-sigs.git"
   "dir": "signature"
 files:
 - "1776-osx-unsigned.tar.gz"

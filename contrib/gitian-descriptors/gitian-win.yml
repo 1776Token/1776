@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/1776/1776.git"
+- "url": "https://github.com/1776-Token/1776.git"
   "dir": "1776"
 files: []
 script: |

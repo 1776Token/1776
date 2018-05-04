@@ -44,7 +44,7 @@ Instructions: Homebrew
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/1776-Token/1776.git
+        git clone https://github.com/1776Token/1776.git
         cd 1776
 
 2.  Build 1776d:

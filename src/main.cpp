@@ -4598,13 +4598,13 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             return true;
         }
 
-        // enforce minimum protocol version on future time condition.
-        if (nTime > (GetArg("-fTime"))){
-            if (pfrom->nVersion < MIN_PROTOCOL_VERSION) {
-                LogPrintf("Diconnect old protocol version wallet, Peer protocol version: \n");
-                pfrom->fDisconnect = true;
-            }
-        }
+//        // enforce minimum protocol version on future time condition.
+//        if (nTime > (GetArg("-fTime"))){
+//            if (pfrom->nVersion < MIN_PROTOCOL_VERSION) {
+//               LogPrintf("Diconnect old protocol version wallet, Peer protocol version: \n");
+//                pfrom->fDisconnect = true;
+//            }
+//        }
 
 
 

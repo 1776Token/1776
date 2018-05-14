@@ -122,7 +122,8 @@ public:
         //nBudgetPercent = 5;
         nMinStakeAge = 60*60*8; // 8 Hours
         nMasternodeRewardPercent = 60; // % of block reward that goes to masternodes
-        nRequiredMasternodeCollateral = 4000 * COIN; //10,000,000
+        nRequiredMasternodeCollateral = 4000 * COIN;
+        nLegacyWalletCutoffHeight = 291776;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -186,10 +187,11 @@ public:
 
         //vFixedSeeds.clear();
         //vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("144.202.50.49", "144.202.50.49")); 
-		vSeeds.push_back(CDNSSeedData("104.207.138.184", "104.207.138.184"));
-		vSeeds.push_back(CDNSSeedData("207.246.66.179", "207.246.66.179")); 
-		vSeeds.push_back(CDNSSeedData("45.77.6.132", "45.77.6.132"));
+	vSeeds.push_back(CDNSSeedData("207.246.66.179", "207.246.66.179")); 
+	vSeeds.push_back(CDNSSeedData("45.77.6.132", "45.77.6.132"));
+	vSeeds.push_back(CDNSSeedData("1776-seed1.freedom.social", "1776-seed1.freedom.social"));
+	vSeeds.push_back(CDNSSeedData("1776-seed2.freedom.social", "1776-seed2.freedom.social"));	
+		
 		
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 0x17);

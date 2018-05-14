@@ -68,6 +68,7 @@ bool fCheckBlockIndex = false;
 unsigned int nCoinCacheSize = 5000;
 bool fAlerts = DEFAULT_ALERTS;
 
+
 unsigned int nStakeMinAge = 60 * 60;
 int64_t nReserveBalance = 0;
 
@@ -4598,15 +4599,22 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             return true;
         }
 
-//        // enforce minimum protocol version on future time condition.
-//        if (nTime > (GetArg("-fTime"))){
-//            if (pfrom->nVersion < MIN_PROTOCOL_VERSION) {
-//               LogPrintf("Diconnect old protocol version wallet, Peer protocol version: \n");
-//                pfrom->fDisconnect = true;
-//            }
-//        }
+        // enforce minimum protocol version on network.
+        if (pindexBestHeader->nHeight > Params().LegacyWalletCutoffHeight()){
+                if (pfrom->nVersion < LEGACY_CUTOFF_MIN_PROTOCOL_VERSION) {
 
-
+		        string remoteAddr;
+			if (fLogIPs){
+				remoteAddr = ", peeraddr=" + pfrom->addr.ToString();
+			}      	
+                
+                    LogPrintf("Diconnect old protocol version wallet: partner %s: version %d, blocks=%d, us=%s, peer=%d%s\n", 
+                    	pfrom->cleanSubVer, pfrom->nVersion,
+            		pfrom->nStartingHeight, addrMe.ToString(), pfrom->id,
+            		remoteAddr);
+                    pfrom->fDisconnect = true;
+            }
+        }
 
         pfrom->addrLocal = addrMe;
         if (pfrom->fInbound && addrMe.IsRoutable()) {

@@ -75,6 +75,7 @@ public:
     int64_t TargetSpacing() const { return nTargetSpacing; }
     int64_t Interval() const { return nTargetTimespan / nTargetSpacing; }
     int LAST_POW_BLOCK() const { return nLastPOWBlock; }
+    int LegacyWalletCutoffHeight() const { return nLegacyWalletCutoffHeight; }
     int COINBASE_MATURITY() const { return nMaturity; }
     int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
     CAmount MaxMoneyOut() const { return nMaxMoneyOut; }
@@ -120,6 +121,7 @@ protected:
     int64_t nTargetTimespan;
     int64_t nTargetSpacing;
     int nLastPOWBlock;
+    int nLegacyWalletCutoffHeight;    
     int nMasternodeCountDrift;
     int nMaturity;
     int nModifierUpdateBlock;
@@ -144,6 +146,7 @@ protected:
     std::string strSporkKey;
     std::string strObfuscationPoolDummyAddress;
     int64_t nStartMasternodePayments;
+
 
     int64_t nMasternodeRewardPercent;
     int64_t nBudgetPercent;

@@ -1613,35 +1613,6 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 int64_t GetBlockValue(int nHeight, CAmount nFees, bool fBudgetBlock)
 {
-    /**
-     * Block 1: 12 Billions 1776 pre-mined
-     Block Reward:
-     Blocks 2 - 151,200 - 2500 1776
-     Blocks 151,201 - 302,399 - 1250 1776
-     Blocks 302,400 - Infinite:  1000 1776
-     Proof of Stake Schedule - 5% to proposals for all phases
-     95% distributed to stake wallet and master node
-     */
-
-    // int64_t nBudgetMultiplier = COIN;
-    // if (!fBudgetBlock)
-    //     nBudgetMultiplier = COIN - (Params().GetBudgetPercent() * CENT);
-
-    // CAmount nSubsidy = 1000 * nBudgetMultiplier;
-    // if (nHeight == 1)
-    //     nSubsidy = CAmount(1776) * COIN; //premine has no budget allocation
-    // else if (nHeight < 151201)
-    //     nSubsidy = 2500 * nBudgetMultiplier;
-    // else if (nHeight < 302400)
-    //     nSubsidy = 1250 * nBudgetMultiplier;
-
-    // return nSubsidy + nFees;
-
-    // if (nHeight >= 1)
-    // {
-    //     return nFees;
-    // }
-
 
     int64_t nBudgetMultiplier = COIN;
     if (!fBudgetBlock)
@@ -5396,10 +5367,23 @@ int ActiveProtocol()
     // SPORK_15 is used for 70910. Nodes < 70910 don't see it and still get their protocol version via SPORK_14 and their 
     // own ModifierUpgradeBlock()
  
-    if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2))
-            return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
+    if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2)){
 
-    return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
+        if (chainActive.Tip()->nHeight > Params().LegacyWalletCutoffHeight()){
+            return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT_AFTER_FORK;
+        } else {
+            return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
+        }
+
+    }
+
+
+    if (chainActive.Tip()->nHeight > Params().LegacyWalletCutoffHeight()){
+        return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT_AFTER_FORK;
+    } else {
+        return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
+    }
+
 }
 
 // requires LOCK(cs_vRecvMsg)

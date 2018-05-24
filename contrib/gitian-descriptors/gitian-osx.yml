@@ -1,5 +1,5 @@
 ---
-name: "1776-osx-1.1.0.0"
+name: "1776-osx-1.1.0.2"
 enable_cache: true
 suites:
 - "trusty"

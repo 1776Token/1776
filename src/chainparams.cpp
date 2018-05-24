@@ -187,10 +187,9 @@ public:
 
         //vFixedSeeds.clear();
         //vSeeds.clear();
-	vSeeds.push_back(CDNSSeedData("207.246.66.179", "207.246.66.179")); 
-	vSeeds.push_back(CDNSSeedData("45.77.6.132", "45.77.6.132"));
-	vSeeds.push_back(CDNSSeedData("1776-seed1.freedom.social", "1776-seed1.freedom.social"));
-	vSeeds.push_back(CDNSSeedData("1776-seed2.freedom.social", "1776-seed2.freedom.social"));	
+
+		vSeeds.push_back(CDNSSeedData("1776-seed1.freedom.social", "1776-seed1.freedom.social"));
+		vSeeds.push_back(CDNSSeedData("1776-seed2.freedom.social", "1776-seed2.freedom.social"));	
 		
 		
 

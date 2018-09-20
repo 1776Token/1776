@@ -188,18 +188,11 @@ public:
         //vFixedSeeds.clear();
         //vSeeds.clear();
 
-		vSeeds.push_back(CDNSSeedData("1776-seed1.freedom.social", "1776-seed1.freedom.social"));
-		vSeeds.push_back(CDNSSeedData("1776-seed2.freedom.social", "1776-seed2.freedom.social"));	
-		vSeeds.push_back(CDNSSeedData("1776-seed3.freedom.social", "1776-seed3.freedom.social"));
-		vSeeds.push_back(CDNSSeedData("1776-seed4.freedom.social", "1776-seed4.freedom.social"));
-		vSeeds.push_back(CDNSSeedData("1776-seed5.freedom.social", "1776-seed5.freedom.social"));
-		vSeeds.push_back(CDNSSeedData("1776-seed6.freedom.social", "1776-seed6.freedom.social"));
-		vSeeds.push_back(CDNSSeedData("1776-seed7.freedom.social", "1776-seed7.freedom.social"));
-		vSeeds.push_back(CDNSSeedData("45.63.87.169", "45.63.87.169"));
-		vSeeds.push_back(CDNSSeedData("149.28.207.135", "149.28.207.135"));
-		vSeeds.push_back(CDNSSeedData("95.179.141.12", "95.179.141.12"));
-		vSeeds.push_back(CDNSSeedData("95.179.143.241", "95.179.143.241"));
-		vSeeds.push_back(CDNSSeedData("140.82.51.218", "140.82.51.218"));		
+	vSeeds.push_back(CDNSSeedData("216.196.217.106", "216.196.217.106"));
+	vSeeds.push_back(CDNSSeedData("216.196.217.107", "216.196.217.107"));	
+	vSeeds.push_back(CDNSSeedData("216.196.217.108", "216.196.217.108"));
+	vSeeds.push_back(CDNSSeedData("216.196.217.109", "216.196.217.109"));
+	vSeeds.push_back(CDNSSeedData("216.196.217.110", "216.196.217.110"));		
 		
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 0x17);

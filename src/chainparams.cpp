@@ -188,12 +188,8 @@ public:
         //vFixedSeeds.clear();
         //vSeeds.clear();
 
-	vSeeds.push_back(CDNSSeedData("216.196.217.106", "216.196.217.106"));
-	vSeeds.push_back(CDNSSeedData("216.196.217.107", "216.196.217.107"));	
-	vSeeds.push_back(CDNSSeedData("216.196.217.108", "216.196.217.108"));
-	vSeeds.push_back(CDNSSeedData("216.196.217.109", "216.196.217.109"));
-	vSeeds.push_back(CDNSSeedData("216.196.217.110", "216.196.217.110"));		
-		
+      	vSeeds.push_back(CDNSSeedData("mergeseeders.com", "1776-seed.mergeseeder.com"));
+	      vSeeds.push_back(CDNSSeedData("mergeseeders.org", "1776-seed.mergeseeder.org"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 0x17);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 0x76);
@@ -295,7 +291,7 @@ public:
         //hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("000009703dc0066b3814277f3bad8dd9abad64d8e888568c38f0abe6065c9345"));
         assert(genesis.hashMerkleRoot == uint256("e874a2a2faa556e6d9808723233dad49becc217fcb1c6e182e6c62118aeb5101"));
-        
+
         vFixedSeeds.clear();
         vSeeds.clear();
 
@@ -392,7 +388,7 @@ public:
 
         assert(hashGenesisBlock == uint256("70f44200f59496375d78b35748349f03890384d4e1c6df10cab0da32bbec9d8e"));
         assert(genesis.hashMerkleRoot == uint256("e874a2a2faa556e6d9808723233dad49becc217fcb1c6e182e6c62118aeb5101"));
-        
+
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
 

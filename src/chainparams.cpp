@@ -188,8 +188,8 @@ public:
         //vFixedSeeds.clear();
         //vSeeds.clear();
 
-      	vSeeds.push_back(CDNSSeedData("mergeseeders.com", "1776-seed.mergeseeder.com"));
-	      vSeeds.push_back(CDNSSeedData("mergeseeders.org", "1776-seed.mergeseeder.org"));
+      	vSeeds.push_back(CDNSSeedData("1776-seed.mergeseeders.com", "1776-seed.mergeseeders.com"));
+        vSeeds.push_back(CDNSSeedData("1776-seed.mergeseeders.org", "1776-seed.mergeseeders.org"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 0x17);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 0x76);

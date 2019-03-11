@@ -1107,16 +1107,21 @@ void ThreadDNSAddressSeed()
     LogPrintf("Loading addresses from DNS seeds (could take a while)\n");
 
     BOOST_FOREACH (const CDNSSeedData& seed, vSeeds) {
+        LogPrintf("Looking up hosts.\n");
+        LogPrintf("Host DNS seed - %s\n", seed.host.c_str());
+
         if (HaveNameProxy()) {
             AddOneShot(seed.host);
         } else {
             vector<CNetAddr> vIPs;
             vector<CAddress> vAdd;
+
             if (LookupHost(seed.host.c_str(), vIPs)) {
                 BOOST_FOREACH (CNetAddr& ip, vIPs) {
                     int nOneDay = 24 * 3600;
                     CAddress addr = CAddress(CService(ip, Params().GetDefaultPort()));
                     addr.nTime = GetTime() - 3 * nOneDay - GetRand(4 * nOneDay); // use a random age between 3 and 7 days old
+                    LogPrintf("Addresses found from DNS seed - %s\n", ip.ToStringIP());
                     vAdd.push_back(addr);
                     found++;
                 }

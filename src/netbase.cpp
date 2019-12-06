@@ -928,10 +928,10 @@ std::vector<unsigned char> CNetAddr::GetGroup() const
     }
     // for he.net, use /36 groups
     else if (GetByte(15) == 0x20 && GetByte(14) == 0x01 && GetByte(13) == 0x04 && GetByte(12) == 0x70)
-        nBits = 36;
+        nBits = 72;
     // for the rest of the IPv6 network, use /32 groups
     else
-        nBits = 32;
+        nBits = 72;
 
     vchRet.push_back(nClass);
     while (nBits >= 8) {
